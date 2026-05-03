@@ -31,9 +31,12 @@ export default function FamilyViolence() {
 
   const districtData2024 = useMemo(() => {
     if (!districtData) return [];
-    return districtData.data
-      .filter(r => r.year === 2024)
-      .map(r => ({ ...r, fv_victimisations: Math.round(r.victimisations * fvFactor) }))
+    const totals = new Map<string, number>();
+    for (const r of districtData.data.filter(r => r.year === 2024)) {
+      totals.set(r.district, (totals.get(r.district) ?? 0) + r.victimisations);
+    }
+    return Array.from(totals.entries())
+      .map(([district, victimisations]) => ({ district, fv_victimisations: Math.round(victimisations * fvFactor) }))
       .sort((a, b) => b.fv_victimisations - a.fv_victimisations);
   }, [districtData]);
 
