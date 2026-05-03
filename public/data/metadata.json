@@ -1,0 +1,12 @@
+{
+  "last_updated": "2025-05-01",
+  "last_updated_utc": "2025-05-01T00:00:00+00:00",
+  "data_from": "2015-01",
+  "data_to": "2025-04",
+  "source": "NZ Police — policedata.nz",
+  "source_url": "https://www.police.govt.nz/about-us/publications-statistics/data-and-statistics/policedatanz",
+  "license": "Creative Commons Attribution 4.0 International",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "update_frequency": "Monthly (last working day)",
+  "note": "Data sourced from NZ Police Tableau Public dashboards. This site is not affiliated with NZ Police."
+}
