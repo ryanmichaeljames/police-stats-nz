@@ -88,6 +88,17 @@ export interface OffenderDemographicsData {
   by_ethnicity: OffenderEthnicityRecord[];
 }
 
+export interface DeporteeRecord {
+  year: number;
+  total_deportees: number;
+  male: number;
+  female: number;
+  age_under_25: number;
+  age_25_34: number;
+  age_35_44: number;
+  age_45_plus: number;
+}
+
 export interface DemandRecord {
   year: number;
   month: number;

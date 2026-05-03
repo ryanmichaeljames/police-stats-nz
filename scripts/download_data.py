@@ -102,6 +102,12 @@ WORKBOOKS = [
         "dataset": "drugs",
         "description": "Drug policing — MODA actions pre/post 2019 amendment",
     },
+    {
+        "workbook": "DeporteeReport",
+        "view": "Summary",
+        "dataset": "deportees",
+        "description": "Deportees from Australia — annual arrivals assessed by NZ Police",
+    },
 ]
 
 REQUEST_HEADERS = {

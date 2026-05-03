@@ -356,6 +356,63 @@ def update_metadata() -> None:
 # Entry point
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+def process_deportees() -> bool:
+    """Process deportees from Australia CSV."""
+    raw_path = RAW_DIR / "deportees.csv"
+    rows = read_csv(raw_path)
+    if not rows:
+        log.warning("  deportees.csv not found — skipping")
+        return False
+
+    deportee_agg: dict[int, dict] = defaultdict(lambda: {
+        "total": 0, "male": 0, "female": 0,
+        "under_25": 0, "25_34": 0, "35_44": 0, "45_plus": 0,
+    })
+
+    for row in rows:
+        year_str = find_col(row, "year", "calendar_year")
+        year = safe_int(year_str)
+        if year == 0:
+            continue
+
+        total = safe_int(find_col(row, "total", "total_deportees", "deportees", "count"))
+        male = safe_int(find_col(row, "male"))
+        female = safe_int(find_col(row, "female"))
+        u25 = safe_int(find_col(row, "under_25", "age_under_25", "0_24"))
+        a25_34 = safe_int(find_col(row, "25_34", "age_25_34"))
+        a35_44 = safe_int(find_col(row, "35_44", "age_35_44"))
+        a45p = safe_int(find_col(row, "45_plus", "age_45_plus", "45"))
+
+        d = deportee_agg[year]
+        d["total"] += total
+        d["male"] += male
+        d["female"] += female
+        d["under_25"] += u25
+        d["25_34"] += a25_34
+        d["35_44"] += a35_44
+        d["45_plus"] += a45p
+
+    (DATA_DIR / "deportees").mkdir(parents=True, exist_ok=True)
+    write_json(DATA_DIR / "deportees" / "summary.json", {"data": [
+        {
+            "year": y,
+            "total_deportees": d["total"],
+            "male": d["male"],
+            "female": d["female"],
+            "age_under_25": d["under_25"],
+            "age_25_34": d["25_34"],
+            "age_35_44": d["35_44"],
+            "age_45_plus": d["45_plus"],
+        }
+        for y, d in sorted(deportee_agg.items())
+    ]})
+    return True
+
+
 def main() -> None:
     log.info("=" * 60)
     log.info("NZ Police Statistics — Data Processing")
@@ -368,6 +425,7 @@ def main() -> None:
         ("Victimisations", process_victimisations),
         ("Offenders", process_offenders),
         ("Demand", process_demand),
+        ("Deportees", process_deportees),
     ]:
         log.info("Processing: %s", label)
         if func():

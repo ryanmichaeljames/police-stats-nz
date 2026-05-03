@@ -6,6 +6,7 @@ import Victimisations from './pages/Victimisations';
 import Offenders from './pages/Offenders';
 import FamilyViolence from './pages/FamilyViolence';
 import Demand from './pages/Demand';
+import Deportees from './pages/Deportees';
 import DataExplorer from './pages/DataExplorer';
 import About from './pages/About';
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/offenders" element={<Offenders />} />
             <Route path="/family-violence" element={<FamilyViolence />} />
             <Route path="/demand" element={<Demand />} />
+            <Route path="/deportees" element={<Deportees />} />
             <Route path="/data-explorer" element={<DataExplorer />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<Navigate to="/" replace />} />

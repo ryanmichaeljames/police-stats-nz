@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { to: '/offenders', label: 'Offenders' },
   { to: '/family-violence', label: 'Family Violence' },
   { to: '/demand', label: 'Demand & Activity' },
+  { to: '/deportees', label: 'Deportees' },
   { to: '/data-explorer', label: 'Data Explorer' },
   { to: '/about', label: 'About' },
 ];
