@@ -1,37 +1,23 @@
 # Police Stats NZ
 
-**Police Stats NZ** is an independent web application for exploring publicly available New Zealand Police statistics. It presents objective charts, summaries, and trends from official NZ Police data so users can examine crime patterns by location, time period, offence type, and demographics.
+An independent web application for exploring publicly available New Zealand Police statistics. Charts, summaries, and trends from official NZ Police data — no political framing, no tracking, no paywalls.
 
-> ⚠️ This site is **not affiliated with, endorsed by, or connected to the New Zealand Police**. All data is sourced from official NZ Police public publications.
+> **Disclaimer:** This site is not affiliated with, endorsed by, or connected to the New Zealand Police. All data is sourced from official NZ Police public publications.
 
-🌐 **Live site:** [ryanmichaeljames.github.io/police-stats-nz](https://ryanmichaeljames.github.io/police-stats-nz/)
+**Live site:** https://ryanmichaeljames.github.io/police-stats-nz/
 
 ---
 
 ## Features
 
-- 📊 **Interactive charts** — trend lines, bar charts, demographic breakdowns, year-on-year comparisons
-- 🗺️ **Geographic breakdown** — national, police district, and station level
-- 📅 **10+ years of data** — monthly data from January 2015
-- ⬇️ **Download all data** — every dataset available as CSV and JSON
-- 🔍 **Data Explorer** — browse and filter all raw datasets
-- 🔄 **Automatically updated** — GitHub Actions downloads fresh data monthly
-- 🚫 **No tracking** — zero cookies, zero analytics, zero user data collection
-- 📖 **Open source** — fully public repository
-
----
-
-## Data Sources
-
-All data is published by the New Zealand Police and licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
-
-| Dataset | Description | Update Frequency |
-|---|---|---|
-| **RCVS** — Recorded Crime Victims Statistics | Victim-focused: victimisations and unique victims by district, offence type, demographics | Monthly |
-| **RCOS** — Recorded Crime Offenders Statistics | Offender-focused: proceedings and unique offenders by district, offence type, demographics | Monthly |
-| **Demand and Activity** | Crime vs non-crime demand, proactive activities by district | Monthly |
-
-**Source:** [policedata.nz](https://www.police.govt.nz/about-us/publications-statistics/data-and-statistics/policedatanz) — NZ Police Tableau Public dashboards
+- Interactive charts — trend lines, bar charts, demographic breakdowns, year-on-year comparisons
+- Filter by year range, police district, and offence category
+- 10+ years of monthly data (January 2015 to present)
+- Download any dataset as CSV or JSON directly from the app
+- Data Explorer — browse and filter all datasets in full
+- Automatically updated monthly via GitHub Actions
+- No cookies, no analytics, no user data collected
+- Fully open source — public repository, all data files included
 
 ---
 
@@ -39,24 +25,40 @@ All data is published by the New Zealand Police and licensed under [Creative Com
 
 | Page | Description |
 |---|---|
-| **Overview** | Dashboard with KPI cards, 12-month trend, top offence categories |
-| **Victimisations** | RCVS explorer — trend, district, offence type, victim demographics |
-| **Offenders** | RCOS explorer — trend, district, offence type, offender demographics |
-| **Family Violence** | Family violence subset — monthly trend, district breakdown |
-| **Demand & Activity** | Police demand volume — crime vs non-crime, proactive activities |
-| **Data Explorer** | Browse and download all datasets in full |
-| **About** | Transparency, methodology, data sources, privacy statement |
+| Overview | KPI summary cards, 12-month trend, top offence categories |
+| Victimisations | RCVS — trend, district, offence type, victim demographics |
+| Offenders | RCOS — trend, district, offence type, offender demographics |
+| Family Violence | Family violence trend and district breakdown |
+| Demand & Activity | Crime vs non-crime demand, proactive activities |
+| Data Explorer | Browse and download all datasets |
+| About | Data sources, methodology, privacy, license |
+
+---
+
+## Data Sources
+
+All data is published by the New Zealand Police under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
+
+| Dataset | Description |
+|---|---|
+| **RCVS** — Recorded Crime Victims Statistics | Victimisations and unique victims by district, offence type, and demographics (monthly from Jan 2015) |
+| **RCOS** — Recorded Crime Offenders Statistics | Proceedings and unique offenders by district, offence type, and demographics (monthly from Jan 2015) |
+| **Demand and Activity** | Crime vs non-crime demand and proactive activities by district (monthly) |
+
+Source: [policedata.nz](https://www.police.govt.nz/about-us/publications-statistics/data-and-statistics/policedatanz)
 
 ---
 
 ## Tech Stack
 
-- **Frontend:** React 18 + TypeScript + Vite
-- **Charts:** Recharts
-- **Routing:** React Router v6
-- **Styling:** Tailwind CSS
-- **Hosting:** GitHub Pages
-- **Data pipeline:** Python 3 + GitHub Actions
+| | |
+|---|---|
+| Frontend | React 19, TypeScript, Vite |
+| Charts | Recharts |
+| Routing | React Router v7 |
+| Styling | Tailwind CSS |
+| Hosting | GitHub Pages |
+| Data pipeline | Python 3, GitHub Actions |
 
 ---
 
@@ -64,74 +66,71 @@ All data is published by the New Zealand Police and licensed under [Creative Com
 
 ```
 police-stats-nz/
-├── .github/
-│   └── workflows/
-│       ├── deploy.yml          # Deploy to GitHub Pages on push to main
-│       └── update-data.yml     # Monthly data download & processing (CRON)
+├── .github/workflows/
+│   ├── deploy.yml          # Build and deploy to GitHub Pages on push to main
+│   └── update-data.yml     # Monthly data refresh (1st of each month, 6am UTC)
 ├── scripts/
-│   ├── download_data.py        # Download from Tableau Public
-│   ├── process_data.py         # Aggregate CSVs into JSON for the frontend
+│   ├── download_data.py    # Download raw CSVs from NZ Police Tableau Public
+│   ├── process_data.py     # Aggregate raw CSVs into JSON for the frontend
 │   └── requirements.txt
-├── public/
-│   └── data/
-│       ├── metadata.json
-│       ├── victimisations/
-│       ├── offenders/
-│       └── demand/
+├── public/data/
+│   ├── victimisations/     # summary, by_district, by_offence, demographics
+│   ├── offenders/          # summary, by_district, by_offence, demographics
+│   └── demand/             # summary
 └── src/
-    ├── components/
-    ├── hooks/
-    ├── pages/
-    ├── types/
-    └── utils/
+    ├── components/         # Charts, layout, and UI components
+    ├── hooks/              # useData, useFilters
+    ├── pages/              # One file per page route
+    ├── types/              # TypeScript interfaces for all data shapes
+    └── utils/              # Formatters, CSV export, constants
 ```
 
 ---
 
 ## Local Development
 
+Requires Node.js 18+.
+
 ```bash
 npm install
-npm run dev      # http://localhost:5173/police-stats-nz/
-npm run build    # Production build
+npm run dev       # Dev server at http://localhost:5173/police-stats-nz/
+npm run build     # Production build to dist/
+npm run preview   # Preview production build locally
+npm run lint      # Run ESLint
 ```
 
 ---
 
 ## Data Pipeline
 
-Data is automatically refreshed on the **1st of each month** via GitHub Actions.
-
-To run manually:
+Data is refreshed automatically on the **1st of each month** via GitHub Actions. To run the pipeline manually:
 
 ```bash
 cd scripts
 pip install -r requirements.txt
-python download_data.py   # Downloads raw CSVs from policedata.nz
-python process_data.py    # Processes CSVs into public/data/ JSON files
+
+# Step 1: download raw CSVs from policedata.nz
+python download_data.py
+
+# Step 2: aggregate raw CSVs into public/data/ JSON files
+python process_data.py
 ```
 
-If a download fails, existing data is preserved and the workflow continues.
+Raw CSV files are saved to `scripts/raw/` (git-ignored). If a download step fails, the existing `public/data/` files are left unchanged so the app continues to serve last-known data.
 
 ---
 
 ## Privacy
 
-- ✅ No cookies of any kind
-- ✅ No analytics or tracking scripts
-- ✅ No user data collected or stored
-- ✅ Static site — no server-side processing
+- No cookies of any kind
+- No analytics or tracking scripts
+- No user data collected or stored
+- Static site — all data is served as flat files from this repository
 
 ---
 
 ## License
 
-Source code: [MIT License](LICENSE)
+**Source code:** [MIT License](LICENSE)
 
-NZ Police data: Crown copyright © licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/). Source: [NZ Police — policedata.nz](https://www.police.govt.nz/about-us/publications-statistics/data-and-statistics/policedatanz).
-
----
-
-## Disclaimer
-
-This is an independent, non-commercial website. It is not affiliated with, endorsed by, or connected to the New Zealand Police. Data is presented as-is from official sources without political framing or editorial interpretation.
+**NZ Police data:** Crown copyright © New Zealand Police, licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
