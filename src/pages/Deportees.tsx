@@ -52,7 +52,7 @@ export default function Deportees() {
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Deportees from Australia</h1>
         <p className="text-gray-600 mt-1">
-          New Zealand citizens and residents deported from Australia — annual figures published by NZ Police
+          Annual figures for New Zealand citizens and residents deported from Australia, published by NZ Police
         </p>
       </div>
 
@@ -97,7 +97,7 @@ export default function Deportees() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <section className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">By Sex — Annual</h2>
+          <h2 className="text-lg font-semibold mb-4">By Sex (Annual)</h2>
           <TrendLineChart
             data={sexData}
             xKey="year_label"

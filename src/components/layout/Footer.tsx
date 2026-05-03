@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-700 mt-8 pt-4 text-xs text-center">
-          Source: NZ Police — policedata.nz | Creative Commons Attribution 4.0 International | This is an independent website, not affiliated with NZ Police.
+          Source: NZ Police via policedata.nz. Licensed under Creative Commons Attribution 4.0 International. This is an independent website, not affiliated with NZ Police.
         </div>
       </div>
     </footer>

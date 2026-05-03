@@ -88,13 +88,13 @@ export default function ProfessionalConduct() {
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Professional Conduct</h1>
         <p className="text-gray-600 mt-1">
-          Incidents and allegations involving NZ Police employees, reported from the IAPro professional standards system
+          Incidents and allegations involving NZ Police employees, tracked through the IAPro professional standards system
         </p>
       </div>
 
       <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-900">
         <strong>Note on data currency:</strong> This page displays sample/estimated data pending automated PDF extraction.
-        NZ Police publishes conduct statistics as PDF tables quarterly (with typical lags of 2–13 months). Data is sourced from the{' '}
+        NZ Police publishes conduct statistics as PDF tables quarterly (with typical publication lags of 2 to 13 months). Data is sourced from the{' '}
         <a
           href="https://www.police.govt.nz/about-us/about-new-zealand-police/police-professional-conduct/professional-conduct-statistics"
           target="_blank"
@@ -103,7 +103,7 @@ export default function ProfessionalConduct() {
         >
           NZ Police Professional Conduct Statistics
         </a>
-        {' '}page and recorded in the IAPro system. Outcomes (sustained/not sustained) are not published.
+        {' '}page and recorded in the IAPro system. Outcome information (sustained or not sustained) is not published.
       </div>
 
       {latestAnnual && (
@@ -134,14 +134,14 @@ export default function ProfessionalConduct() {
 
       {latest && latest !== latestAnnual && (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
-          <strong>Latest release: {latest.period}</strong> — {formatNumber(latest.incidents)} incidents,{' '}
-          {formatNumber(latest.involved_staff)} involved staff (YTD as at {latest.period})
+          <strong>Latest release: {latest.period}.</strong> {formatNumber(latest.incidents)} incidents,{' '}
+          {formatNumber(latest.involved_staff)} involved staff (year to date as at {latest.period})
         </div>
       )}
 
       {/* Annual trend */}
       <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Annual Trend — Incidents & Involved Staff</h2>
+        <h2 className="text-lg font-semibold mb-4">Annual Trend: Incidents and Involved Staff</h2>
         <TrendLineChart
           data={trendData}
           xKey="period"
@@ -179,7 +179,7 @@ export default function ProfessionalConduct() {
         {/* Allegation category breakdown */}
         <section className="bg-white rounded-lg shadow p-6">
           <h2 className="text-lg font-semibold mb-1">By Allegation Category</h2>
-          <p className="text-xs text-gray-500 mb-4">YTD incidents — {selectedPeriod}</p>
+          <p className="text-xs text-gray-500 mb-4">Year to date incidents for {selectedPeriod}</p>
           {allegationChart.length > 0 ? (
             <CategoryBarChart
               data={allegationChart}
@@ -197,7 +197,7 @@ export default function ProfessionalConduct() {
         {/* District breakdown */}
         <section className="bg-white rounded-lg shadow p-6">
           <h2 className="text-lg font-semibold mb-1">By District</h2>
-          <p className="text-xs text-gray-500 mb-4">YTD incidents — {selectedPeriod}</p>
+          <p className="text-xs text-gray-500 mb-4">Year to date incidents for {selectedPeriod}</p>
           {districtChart.length > 0 ? (
             <CategoryBarChart
               data={districtChart}

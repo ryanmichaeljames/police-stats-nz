@@ -70,7 +70,7 @@ export default function Victimisations() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Victimisations</h1>
-        <p className="text-gray-600 mt-1">Recorded Crime Victims Statistics (RCVS) — victim-focused crime data</p>
+        <p className="text-gray-600 mt-1">Victim-focused crime data from the Recorded Crime Victims Statistics (RCVS)</p>
       </div>
 
       <FilterBar filters={filters} onUpdate={updateFilter} />

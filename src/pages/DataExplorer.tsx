@@ -6,13 +6,13 @@ import DownloadButton from '../components/ui/DownloadButton';
 import { exportToJSON } from '../utils/csvExport';
 
 const DATASETS = [
-  { label: 'Victimisations — Monthly Summary', path: 'data/victimisations/summary.json', key: 'data' },
-  { label: 'Victimisations — By District', path: 'data/victimisations/by_district.json', key: 'data' },
-  { label: 'Victimisations — By Offence', path: 'data/victimisations/by_offence.json', key: 'data' },
-  { label: 'Offenders — Monthly Summary', path: 'data/offenders/summary.json', key: 'data' },
-  { label: 'Offenders — By District', path: 'data/offenders/by_district.json', key: 'data' },
-  { label: 'Offenders — By Offence', path: 'data/offenders/by_offence.json', key: 'data' },
-  { label: 'Demand — Monthly Summary', path: 'data/demand/summary.json', key: 'data' },
+  { label: 'Victimisations: Monthly Summary', path: 'data/victimisations/summary.json', key: 'data' },
+  { label: 'Victimisations: By District', path: 'data/victimisations/by_district.json', key: 'data' },
+  { label: 'Victimisations: By Offence', path: 'data/victimisations/by_offence.json', key: 'data' },
+  { label: 'Offenders: Monthly Summary', path: 'data/offenders/summary.json', key: 'data' },
+  { label: 'Offenders: By District', path: 'data/offenders/by_district.json', key: 'data' },
+  { label: 'Offenders: By Offence', path: 'data/offenders/by_offence.json', key: 'data' },
+  { label: 'Demand: Monthly Summary', path: 'data/demand/summary.json', key: 'data' },
 ];
 
 export default function DataExplorer() {

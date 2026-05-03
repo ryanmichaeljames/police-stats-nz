@@ -48,7 +48,7 @@ export default function FamilyViolence() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Family Violence</h1>
-        <p className="text-gray-600 mt-1">Family violence victimisations — a subset of total crime victimisations</p>
+        <p className="text-gray-600 mt-1">Family violence victimisations, recorded as a subset of total crime data</p>
       </div>
 
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">

@@ -52,7 +52,7 @@ export default function Overview() {
         <p className="mt-2 text-gray-600">Exploring publicly available New Zealand Police statistics</p>
         {metadata && (
           <p className="mt-1 text-sm text-gray-500">
-            Data last updated: <strong>{metadata.last_updated}</strong> | Coverage: {metadata.data_from} to {metadata.data_to}
+            Data last updated <strong>{metadata.last_updated}</strong>, covering {metadata.data_from} to {metadata.data_to}
           </p>
         )}
       </div>
@@ -88,7 +88,7 @@ export default function Overview() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">Victimisations — Last 12 Months</h2>
+          <h2 className="text-lg font-semibold mb-4">Victimisations: Last 12 Months</h2>
           <TrendLineChart
             data={last12Months}
             xKey="month_label"

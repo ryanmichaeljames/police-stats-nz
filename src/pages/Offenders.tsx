@@ -69,7 +69,7 @@ export default function Offenders() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Offenders</h1>
-        <p className="text-gray-600 mt-1">Recorded Crime Offenders Statistics (RCOS) — offender-focused proceedings data</p>
+        <p className="text-gray-600 mt-1">Offender-focused proceedings data from the Recorded Crime Offenders Statistics (RCOS)</p>
       </div>
 
       <FilterBar filters={filters} onUpdate={updateFilter} />

@@ -16,11 +16,11 @@ export default function About() {
         <h2 className="text-xl font-semibold mb-3">Data Sources</h2>
         <div className="space-y-4 text-gray-700">
           <div>
-            <h3 className="font-semibold">RCVS — Recorded Crime Victims Statistics</h3>
+            <h3 className="font-semibold">RCVS (Recorded Crime Victims Statistics)</h3>
             <p className="mt-1">Victim-focused crime statistics recording the number of victimisations and unique victims. Covers monthly data from January 2015, broken down by district, offence type, and demographics. Excludes drug offences (which are typically offender-focused).</p>
           </div>
           <div>
-            <h3 className="font-semibold">RCOS — Recorded Crime Offenders Statistics</h3>
+            <h3 className="font-semibold">RCOS (Recorded Crime Offenders Statistics)</h3>
             <p className="mt-1">Offender-focused statistics recording the number of criminal proceedings. Includes drug offences. Covers monthly data from January 2015, broken down by district, offence type, and offender demographics.</p>
           </div>
           <div>
