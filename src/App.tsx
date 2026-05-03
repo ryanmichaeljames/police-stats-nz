@@ -16,6 +16,9 @@ function App() {
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen flex flex-col bg-gray-50 font-sans">
         <Header />
+        <div className="bg-amber-50 border-b-2 border-amber-400 px-4 py-2 text-center text-sm text-amber-900">
+          <span className="font-semibold">⚠️ Work in progress</span> — data on this site may be incomplete or inaccurate. Do not rely on any figures shown here for official, legal, or research purposes.
+        </div>
         <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <Routes>
             <Route path="/" element={<Overview />} />

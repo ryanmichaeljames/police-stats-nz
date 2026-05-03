@@ -85,16 +85,6 @@ export default function ProfessionalConduct() {
 
   return (
     <div className="space-y-8">
-      {/* Persistent WIP banner */}
-      <div className="bg-red-50 border-2 border-red-400 rounded-lg p-4 flex gap-3">
-        <span className="text-red-500 text-xl leading-none mt-0.5">⚠️</span>
-        <div className="text-sm text-red-800">
-          <strong className="font-semibold">Work in progress — data may be inaccurate.</strong>{' '}
-          This section is under active development. Numbers are estimated sample values pending automated PDF extraction
-          from NZ Police source documents. Do not rely on any figures shown here until this notice is removed.
-        </div>
-      </div>
-
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Professional Conduct</h1>
         <p className="text-gray-600 mt-1">
