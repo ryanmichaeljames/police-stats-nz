@@ -1,0 +1,18 @@
+{
+  "_note": "Sample data pending PDF extraction. Annual YTD totals from NZ Police Professional Conduct Statistics (IAPro). Source: https://www.police.govt.nz/about-us/about-new-zealand-police/police-professional-conduct/professional-conduct-statistics",
+  "data": [
+    { "period": "Dec 2018", "year": 2018, "quarter": 4, "quarter_label": "Q4", "incidents": 502, "involved_staff": 611, "resolved": 389, "ongoing": 113 },
+    { "period": "Dec 2019", "year": 2019, "quarter": 4, "quarter_label": "Q4", "incidents": 541, "involved_staff": 658, "resolved": 421, "ongoing": 120 },
+    { "period": "Dec 2020", "year": 2020, "quarter": 4, "quarter_label": "Q4", "incidents": 564, "involved_staff": 689, "resolved": 440, "ongoing": 124 },
+    { "period": "Jun 2021", "year": 2021, "quarter": 2, "quarter_label": "Q2", "incidents": 312, "involved_staff": 378, "resolved": 228, "ongoing": 84 },
+    { "period": "Dec 2021", "year": 2021, "quarter": 4, "quarter_label": "Q4", "incidents": 603, "involved_staff": 743, "resolved": 481, "ongoing": 122 },
+    { "period": "Dec 2022", "year": 2022, "quarter": 4, "quarter_label": "Q4", "incidents": 648, "involved_staff": 791, "resolved": 514, "ongoing": 134 },
+    { "period": "Dec 2023", "year": 2023, "quarter": 4, "quarter_label": "Q4", "incidents": 694, "involved_staff": 853, "resolved": 558, "ongoing": 136 },
+    { "period": "Mar 2024", "year": 2024, "quarter": 1, "quarter_label": "Q1", "incidents": 178, "involved_staff": 216, "resolved": 121, "ongoing": 57 },
+    { "period": "Jun 2024", "year": 2024, "quarter": 2, "quarter_label": "Q2", "incidents": 363, "involved_staff": 441, "resolved": 267, "ongoing": 96 },
+    { "period": "Sep 2024", "year": 2024, "quarter": 3, "quarter_label": "Q3", "incidents": 541, "involved_staff": 661, "resolved": 412, "ongoing": 129 },
+    { "period": "Dec 2024", "year": 2024, "quarter": 4, "quarter_label": "Q4", "incidents": 721, "involved_staff": 882, "resolved": 573, "ongoing": 148 },
+    { "period": "Mar 2025", "year": 2025, "quarter": 1, "quarter_label": "Q1", "incidents": 184, "involved_staff": 224, "resolved": 128, "ongoing": 56 },
+    { "period": "Jun 2025", "year": 2025, "quarter": 2, "quarter_label": "Q2", "incidents": 371, "involved_staff": 453, "resolved": 274, "ongoing": 97 }
+  ]
+}

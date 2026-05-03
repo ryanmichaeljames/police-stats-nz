@@ -115,13 +115,14 @@ export default function Overview() {
 
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h2 className="text-lg font-semibold text-blue-900 mb-3">Explore the Data</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 gap-3">
           {[
             { to: '/victimisations', label: 'Victimisations' },
             { to: '/offenders', label: 'Offenders' },
             { to: '/family-violence', label: 'Family Violence' },
             { to: '/demand', label: 'Demand & Activity' },
             { to: '/deportees', label: 'Deportees' },
+            { to: '/conduct', label: 'Conduct' },
             { to: '/data-explorer', label: 'Data Explorer' },
             { to: '/about', label: 'About' },
           ].map(link => (

@@ -99,6 +99,34 @@ export interface DeporteeRecord {
   age_45_plus: number;
 }
 
+export interface ConductSummaryRecord {
+  period: string;
+  year: number;
+  quarter: number;
+  quarter_label: string;
+  incidents: number;
+  involved_staff: number;
+  resolved: number;
+  ongoing: number;
+}
+
+export interface ConductDistrictRecord {
+  period: string;
+  year: number;
+  quarter: number;
+  district: string;
+  incidents: number;
+  involved_staff: number;
+}
+
+export interface ConductAllegationRecord {
+  period: string;
+  year: number;
+  quarter: number;
+  allegation_category: string;
+  incidents: number;
+}
+
 export interface DemandRecord {
   year: number;
   month: number;
