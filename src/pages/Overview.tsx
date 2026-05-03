@@ -48,16 +48,16 @@ export default function Overview() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900">Police Stats NZ</h1>
-        <p className="mt-2 text-gray-600">Exploring publicly available New Zealand Police statistics</p>
+        <h1 className="text-3xl font-bold text-black">Police Stats NZ</h1>
+        <p className="mt-2 text-gray-500">Exploring publicly available New Zealand Police statistics</p>
         {metadata && (
-          <p className="mt-1 text-sm text-gray-500">
-            Data last updated <strong>{metadata.last_updated}</strong>, covering {metadata.data_from} to {metadata.data_to}
+          <p className="mt-1 text-xs font-mono text-gray-400">
+            Data last updated <strong className="text-gray-600">{metadata.last_updated}</strong>, covering {metadata.data_from} to {metadata.data_to}
           </p>
         )}
       </div>
 
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-800">
+      <div className="bg-gray-50 border border-gray-200 p-4 text-sm text-gray-600">
         <strong>Disclaimer:</strong> This is an independent website. Data sourced from NZ Police via policedata.nz. This site is not affiliated with or endorsed by NZ Police. Data is presented for educational and research purposes only.
       </div>
 
@@ -87,8 +87,8 @@ export default function Overview() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">Victimisations: Last 12 Months</h2>
+        <div className="bg-white border border-gray-200 p-6">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Victimisations: Last 12 Months</h2>
           <TrendLineChart
             data={last12Months}
             xKey="month_label"
@@ -100,8 +100,8 @@ export default function Overview() {
           <SourceAttribution />
         </div>
 
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">Top 5 Offence Categories (2024)</h2>
+        <div className="bg-white border border-gray-200 p-6">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Top 5 Offence Categories (2024)</h2>
           <CategoryBarChart
             data={top5Offences}
             xKey="offence_category"
@@ -113,9 +113,9 @@ export default function Overview() {
         </div>
       </div>
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-        <h2 className="text-lg font-semibold text-blue-900 mb-3">Explore the Data</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 gap-3">
+      <div className="bg-gray-50 border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-3">Explore the Data</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-8 gap-2">
           {[
             { to: '/victimisations', label: 'Victimisations' },
             { to: '/offenders', label: 'Offenders' },
@@ -126,7 +126,7 @@ export default function Overview() {
             { to: '/data-explorer', label: 'Data Explorer' },
             { to: '/about', label: 'About' },
           ].map(link => (
-            <Link key={link.to} to={link.to} className="bg-white border border-blue-200 rounded px-3 py-2 text-sm text-blue-700 text-center hover:bg-blue-100 transition-colors">
+            <Link key={link.to} to={link.to} className="bg-white border border-gray-200 px-3 py-2 text-xs text-black text-center hover:bg-gray-50 transition-colors">
               {link.label}
             </Link>
           ))}

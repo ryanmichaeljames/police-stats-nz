@@ -69,14 +69,14 @@ export default function Victimisations() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Victimisations</h1>
-        <p className="text-gray-600 mt-1">Victim-focused crime data from the Recorded Crime Victims Statistics (RCVS)</p>
+        <h1 className="text-2xl font-bold text-black">Victimisations</h1>
+        <p className="text-gray-500 mt-1">Victim-focused crime data from the Recorded Crime Victims Statistics (RCVS)</p>
       </div>
 
       <FilterBar filters={filters} onUpdate={updateFilter} />
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Trend Over Time</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Trend Over Time</h2>
         <TrendLineChart data={trendData} xKey="month_label" lines={[
           { key: 'victimisations', name: 'Victimisations', color: '#2563eb' },
           { key: 'unique_victims', name: 'Unique Victims', color: '#7c3aed' },
@@ -85,24 +85,24 @@ export default function Victimisations() {
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">By District ({filters.yearTo})</h2>
+        <section className="bg-white border border-gray-200 p-6">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">By District ({filters.yearTo})</h2>
           <CategoryBarChart data={districtChartData} xKey="district" yKey="victimisations" horizontal height={400} />
           <SourceAttribution />
         </section>
 
-        <section className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">By Offence Type ({filters.yearTo})</h2>
+        <section className="bg-white border border-gray-200 p-6">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">By Offence Type ({filters.yearTo})</h2>
           <CategoryBarChart data={offenceChartData} xKey="offence_category" yKey="victimisations" horizontal height={500} />
           <SourceAttribution />
         </section>
       </div>
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Demographics ({filters.yearTo})</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Demographics ({filters.yearTo})</h2>
         <div className="flex gap-2 mb-4">
           {(['age', 'sex', 'ethnicity'] as const).map(tab => (
-            <button key={tab} onClick={() => setDemoTab(tab)} className={`px-4 py-1.5 rounded text-sm font-medium transition-colors ${demoTab === tab ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+            <button key={tab} onClick={() => setDemoTab(tab)} className={`px-4 py-1.5 text-sm font-medium border transition-colors ${demoTab === tab ? 'bg-black text-white border-black' : 'bg-white text-gray-600 border-gray-200 hover:border-black hover:text-black'}`}>
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </button>
           ))}
@@ -111,14 +111,14 @@ export default function Victimisations() {
         <SourceAttribution />
       </section>
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Year-over-Year Comparison</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Year-over-Year Comparison</h2>
         <YoYChart data={yoyData} xKey="year" bars={[{ key: 'victimisations', name: 'Victimisations', color: '#2563eb' }]} height={280} />
         <SourceAttribution />
       </section>
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Data Table</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Data Table</h2>
         <DataTable data={trendData as unknown as Record<string, unknown>[]} filename="victimisations_summary" />
       </section>
     </div>

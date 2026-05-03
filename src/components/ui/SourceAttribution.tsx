@@ -4,17 +4,17 @@ interface SourceAttributionProps {
 
 export default function SourceAttribution({ className = '' }: SourceAttributionProps) {
   return (
-    <p className={`text-xs text-gray-500 mt-2 ${className}`}>
+    <p className={`text-xs font-mono text-gray-400 mt-3 ${className}`}>
       Source:{' '}
       <a
         href="https://www.police.govt.nz/about-us/publications-statistics/data-and-statistics/policedatanz"
-        className="underline hover:text-gray-700"
+        className="underline underline-offset-2 hover:text-black"
         target="_blank"
         rel="noopener noreferrer"
       >
-        NZ Police — policedata.nz
-      </a>{' '}
-      | Creative Commons Attribution 4.0
+        NZ Police / policedata.nz
+      </a>
+      {' '}· CC BY 4.0
     </p>
   );
 }

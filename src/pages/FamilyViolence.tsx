@@ -47,11 +47,11 @@ export default function FamilyViolence() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Family Violence</h1>
-        <p className="text-gray-600 mt-1">Family violence victimisations, recorded as a subset of total crime data</p>
+        <h1 className="text-2xl font-bold text-black">Family Violence</h1>
+        <p className="text-gray-500 mt-1">Family violence victimisations, recorded as a subset of total crime data</p>
       </div>
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
+      <div className="bg-gray-50 border border-gray-200 p-4 text-sm text-gray-600">
         <strong>About this data:</strong> Family violence data is a subset of the overall victimisations data, specifically categorised as incidents occurring within family and domestic relationships. This includes physical assault, sexual assault, psychological abuse, and other offences committed by family members or intimate partners. Data is derived from the RCVS (Recorded Crime Victims Statistics) dataset.
       </div>
 
@@ -63,8 +63,8 @@ export default function FamilyViolence() {
         <StatCard title="Data Source" value="RCVS" subtitle="Recorded Crime Victims Statistics" />
       </div>
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Family Violence Trend</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Family Violence Trend</h2>
         <TrendLineChart data={trendData} xKey="month_label" lines={[
           { key: 'fv_victimisations', name: 'FV Victimisations', color: '#dc2626' },
           { key: 'fv_unique_victims', name: 'Unique Victims', color: '#9333ea' },
@@ -72,8 +72,8 @@ export default function FamilyViolence() {
         <SourceAttribution />
       </section>
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">By District (2024)</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">By District (2024)</h2>
         <CategoryBarChart data={districtData2024} xKey="district" yKey="fv_victimisations" horizontal height={400} />
         <SourceAttribution />
       </section>

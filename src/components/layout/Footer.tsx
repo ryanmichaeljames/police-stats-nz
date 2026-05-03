@@ -2,28 +2,38 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-gray-400 mt-auto">
+    <footer className="border-t border-gray-200 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h3 className="text-white font-semibold mb-3">Police Stats NZ</h3>
-            <p className="text-sm">Independent website presenting publicly available NZ Police statistics. Not affiliated with NZ Police.</p>
+            <p className="font-mono text-xs text-gray-400">police-stats-nz</p>
+            <p className="text-xs text-gray-400 mt-1">Independent. Not affiliated with NZ Police.</p>
           </div>
-          <div>
-            <h3 className="text-white font-semibold mb-3">Data Source</h3>
-            <p className="text-sm">Data sourced from <a href="https://www.police.govt.nz/about-us/publications-statistics/data-and-statistics/policedatanz" className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">NZ Police — policedata.nz</a></p>
-            <p className="text-sm mt-1">Licensed under Creative Commons Attribution 4.0</p>
+          <div className="text-xs text-gray-400 space-y-1 md:text-right">
+            <p>
+              Data:{' '}
+              <a
+                href="https://www.police.govt.nz/about-us/publications-statistics/data-and-statistics/policedatanz"
+                className="text-gray-600 hover:text-black underline underline-offset-2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                NZ Police — policedata.nz
+              </a>
+            </p>
+            <p>Licensed under Creative Commons Attribution 4.0</p>
           </div>
-          <div>
-            <h3 className="text-white font-semibold mb-3">Links</h3>
-            <ul className="text-sm space-y-1">
-              <li><Link to="/about" className="hover:text-white">About this site</Link></li>
-              <li><a href="https://github.com/ryanmichaeljames/police-stats-nz" className="hover:text-white" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            </ul>
+          <div className="flex gap-6 text-xs text-gray-400">
+            <Link to="/about" className="hover:text-black">About</Link>
+            <a
+              href="https://github.com/ryanmichaeljames/police-stats-nz"
+              className="hover:text-black"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
           </div>
-        </div>
-        <div className="border-t border-gray-700 mt-8 pt-4 text-xs text-center">
-          Source: NZ Police via policedata.nz. Licensed under Creative Commons Attribution 4.0 International. This is an independent website, not affiliated with NZ Police.
         </div>
       </div>
     </footer>

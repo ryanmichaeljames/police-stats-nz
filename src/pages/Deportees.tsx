@@ -50,13 +50,13 @@ export default function Deportees() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Deportees from Australia</h1>
+        <h1 className="text-2xl font-bold text-black">Deportees from Australia</h1>
         <p className="text-gray-600 mt-1">
           Annual figures for New Zealand citizens and residents deported from Australia, published by NZ Police
         </p>
       </div>
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
+      <div className="bg-gray-50 border border-gray-200 p-4 text-sm text-gray-600">
         <strong>About this data:</strong> This dataset tracks New Zealand citizens and residents who are deported from
         Australia each year, primarily under Australia's character test provisions (Migration Act 1958, section 501).
         Upon arrival in New Zealand, deportees are assessed by NZ Police. Data is sourced from the NZ Police Deportee
@@ -84,8 +84,8 @@ export default function Deportees() {
         </div>
       )}
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Annual Deportees — Trend</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Annual Deportees Trend</h2>
         <TrendLineChart
           data={trendData}
           xKey="year_label"
@@ -96,8 +96,8 @@ export default function Deportees() {
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">By Sex (Annual)</h2>
+        <section className="bg-white border border-gray-200 p-6">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">By Sex (Annual)</h2>
           <TrendLineChart
             data={sexData}
             xKey="year_label"
@@ -110,8 +110,8 @@ export default function Deportees() {
           <SourceAttribution />
         </section>
 
-        <section className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-4">Age Breakdown ({latest?.year})</h2>
+        <section className="bg-white border border-gray-200 p-6">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Age Breakdown ({latest?.year})</h2>
           <CategoryBarChart
             data={ageData}
             xKey="name"
@@ -123,8 +123,8 @@ export default function Deportees() {
         </section>
       </div>
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Data Table</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Data Table</h2>
         <DataTable
           data={records as unknown as Record<string, unknown>[]}
           filename="deportees_from_australia"

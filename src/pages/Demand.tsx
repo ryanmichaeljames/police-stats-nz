@@ -35,8 +35,8 @@ export default function Demand() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Demand & Activity</h1>
-        <p className="text-gray-600 mt-1">Monthly police demand volume including crime, non-crime, and proactive activities</p>
+        <h1 className="text-2xl font-bold text-black">Demand & Activity</h1>
+        <p className="text-gray-500 mt-1">Monthly police demand volume including crime, non-crime, and proactive activities</p>
       </div>
 
       <FilterBar filters={filters} onUpdate={updateFilter} showDistrict={false} showOffence={false} />
@@ -48,8 +48,8 @@ export default function Demand() {
         <StatCard title="Proactive Activity (2024)" value={formatNumber(totals2024.proactive)} subtitle={`${Math.round(totals2024.proactive / totals2024.total * 100)}% of total`} />
       </div>
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Monthly Demand Trend</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Monthly Demand Trend</h2>
         <StackedAreaChart data={filtered} xKey="month_label" areas={[
           { key: 'crime_demand', name: 'Crime Demand', color: '#dc2626' },
           { key: 'non_crime_demand', name: 'Non-Crime Demand', color: '#2563eb' },
@@ -58,8 +58,8 @@ export default function Demand() {
         <SourceAttribution />
       </section>
 
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Data Table</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Data Table</h2>
         <DataTable data={filtered} filename="demand_summary" />
       </section>
     </div>

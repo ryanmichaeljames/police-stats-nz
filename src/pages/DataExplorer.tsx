@@ -25,25 +25,25 @@ export default function DataExplorer() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Data Explorer</h1>
-        <p className="text-gray-600 mt-1">Browse, sort, and download all available datasets</p>
+        <h1 className="text-2xl font-bold text-black">Data Explorer</h1>
+        <p className="text-gray-500 mt-1">Browse, sort, and download all available datasets</p>
       </div>
 
-      <div className="bg-white rounded-lg shadow p-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Select Dataset</label>
+      <div className="bg-white border border-gray-200 p-4">
+        <label className="block text-xs font-mono uppercase tracking-widest text-gray-400 mb-2">Select Dataset</label>
         <select
           value={selected}
           onChange={e => setSelected(Number(e.target.value))}
-          className="border rounded px-3 py-2 text-sm w-full max-w-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-200 px-3 py-2 text-sm w-full max-w-lg focus:outline-none focus:border-black"
         >
           {DATASETS.map((d, i) => <option key={i} value={i}>{d.label}</option>)}
         </select>
       </div>
 
       {loading ? <LoadingSpinner /> : (
-        <div className="bg-white rounded-lg shadow p-6">
+        <div className="bg-white border border-gray-200 p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold">{dataset.label}</h2>
+            <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400">{dataset.label}</h2>
             <DownloadButton
               onClick={() => exportToJSON(data, `${dataset.label.replace(/[^a-z0-9]/gi, '_')}.json`)}
               label="Download JSON"

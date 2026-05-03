@@ -86,13 +86,13 @@ export default function ProfessionalConduct() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Professional Conduct</h1>
-        <p className="text-gray-600 mt-1">
+        <h1 className="text-2xl font-bold text-black">Professional Conduct</h1>
+        <p className="text-gray-500 mt-1">
           Incidents and allegations involving NZ Police employees, tracked through the IAPro professional standards system
         </p>
       </div>
 
-      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-sm text-amber-900">
+      <div className="bg-gray-50 border border-gray-200 p-4 text-sm text-gray-600">
         <strong>Note on data currency:</strong> This page displays sample/estimated data pending automated PDF extraction.
         NZ Police publishes conduct statistics as PDF tables quarterly (with typical publication lags of 2 to 13 months). Data is sourced from the{' '}
         <a
@@ -133,15 +133,15 @@ export default function ProfessionalConduct() {
       )}
 
       {latest && latest !== latestAnnual && (
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
+        <div className="bg-gray-50 border border-gray-200 p-4 text-sm text-gray-700">
           <strong>Latest release: {latest.period}.</strong> {formatNumber(latest.incidents)} incidents,{' '}
           {formatNumber(latest.involved_staff)} involved staff (year to date as at {latest.period})
         </div>
       )}
 
       {/* Annual trend */}
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Annual Trend: Incidents and Involved Staff</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Annual Trend: Incidents and Involved Staff</h2>
         <TrendLineChart
           data={trendData}
           xKey="period"
@@ -158,9 +158,9 @@ export default function ProfessionalConduct() {
 
       {/* Period selector + breakdowns */}
       <div className="flex items-center gap-3">
-        <label className="text-sm font-medium text-gray-700">View breakdown for period:</label>
+        <label className="text-xs font-mono uppercase tracking-widest text-gray-400">View breakdown for period:</label>
         <select
-          className="border border-gray-300 rounded px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="border border-gray-200 px-3 py-1.5 text-sm focus:outline-none focus:border-black"
           value={selectedPeriod}
           onChange={e => setSelectedPeriod(e.target.value)}
         >
@@ -177,8 +177,8 @@ export default function ProfessionalConduct() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Allegation category breakdown */}
-        <section className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-1">By Allegation Category</h2>
+        <section className="bg-white border border-gray-200 p-6">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-1">By Allegation Category</h2>
           <p className="text-xs text-gray-500 mb-4">Year to date incidents for {selectedPeriod}</p>
           {allegationChart.length > 0 ? (
             <CategoryBarChart
@@ -195,8 +195,8 @@ export default function ProfessionalConduct() {
         </section>
 
         {/* District breakdown */}
-        <section className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold mb-1">By District</h2>
+        <section className="bg-white border border-gray-200 p-6">
+          <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-1">By District</h2>
           <p className="text-xs text-gray-500 mb-4">Year to date incidents for {selectedPeriod}</p>
           {districtChart.length > 0 ? (
             <CategoryBarChart
@@ -214,8 +214,8 @@ export default function ProfessionalConduct() {
       </div>
 
       {/* Allegation definitions */}
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-3">Allegation Category Definitions</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-3">Allegation Category Definitions</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
           {[
             ['Use of Force on Duty', 'Exceeding necessary force during policing duties'],
@@ -250,8 +250,8 @@ export default function ProfessionalConduct() {
       </section>
 
       {/* Data tables */}
-      <section className="bg-white rounded-lg shadow p-6">
-        <h2 className="text-lg font-semibold mb-4">Summary Data Table</h2>
+      <section className="bg-white border border-gray-200 p-6">
+        <h2 className="text-sm font-mono uppercase tracking-widest text-gray-400 mb-4">Summary Data Table</h2>
         <DataTable
           data={summaryRecords as unknown as Record<string, unknown>[]}
           filename="conduct_summary"
