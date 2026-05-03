@@ -106,7 +106,8 @@ export default function Overview() {
             data={top5Offences}
             xKey="offence_category"
             yKey="victimisations"
-            height={300}
+            height={280}
+            horizontal
           />
           <SourceAttribution />
         </div>
