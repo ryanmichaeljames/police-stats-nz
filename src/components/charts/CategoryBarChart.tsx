@@ -14,10 +14,10 @@ export default function CategoryBarChart({ data, xKey, yKey, height = 300, horiz
   if (horizontal) {
     return (
       <ResponsiveContainer width="100%" height={Math.max(height, data.length * 40)}>
-        <BarChart data={data} layout="vertical" margin={{ top: 5, right: 30, left: 200, bottom: 5 }}>
+        <BarChart data={data} layout="vertical" margin={{ top: 5, right: 30, left: 10, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" horizontal={false} />
           <XAxis type="number" tick={{ fontSize: 11 }} tickFormatter={v => v.toLocaleString('en-NZ')} />
-          <YAxis type="category" dataKey={xKey} tick={{ fontSize: 11 }} width={190} />
+          <YAxis type="category" dataKey={xKey} tick={{ fontSize: 11 }} width={210} />
           <Tooltip formatter={(v: unknown) => typeof v === 'number' ? v.toLocaleString('en-NZ') : String(v)} />
           <Bar dataKey={yKey}>
             {data.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
