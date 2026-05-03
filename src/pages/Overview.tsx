@@ -31,8 +31,12 @@ export default function Overview() {
 
   const top5Offences = useMemo(() => {
     if (!offenceData) return [];
-    return offenceData.data
-      .filter(r => r.year === 2024)
+    const totals = new Map<string, number>();
+    for (const r of offenceData.data.filter(r => r.year === 2024)) {
+      totals.set(r.offence_category, (totals.get(r.offence_category) ?? 0) + r.victimisations);
+    }
+    return Array.from(totals.entries())
+      .map(([offence_category, victimisations]) => ({ offence_category, victimisations }))
       .sort((a, b) => b.victimisations - a.victimisations)
       .slice(0, 5);
   }, [offenceData]);

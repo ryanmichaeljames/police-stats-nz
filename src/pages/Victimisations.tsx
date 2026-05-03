@@ -27,15 +27,23 @@ export default function Victimisations() {
 
   const districtChartData = useMemo(() => {
     if (!districtData) return [];
-    return districtData.data
-      .filter(r => r.year === filters.yearTo)
+    const totals = new Map<string, number>();
+    for (const r of districtData.data.filter(r => r.year === filters.yearTo)) {
+      totals.set(r.district, (totals.get(r.district) ?? 0) + r.victimisations);
+    }
+    return Array.from(totals.entries())
+      .map(([district, victimisations]) => ({ district, victimisations }))
       .sort((a, b) => b.victimisations - a.victimisations);
   }, [districtData, filters.yearTo]);
 
   const offenceChartData = useMemo(() => {
     if (!offenceData) return [];
-    return offenceData.data
-      .filter(r => r.year === filters.yearTo)
+    const totals = new Map<string, number>();
+    for (const r of offenceData.data.filter(r => r.year === filters.yearTo)) {
+      totals.set(r.offence_category, (totals.get(r.offence_category) ?? 0) + r.victimisations);
+    }
+    return Array.from(totals.entries())
+      .map(([offence_category, victimisations]) => ({ offence_category, victimisations }))
       .sort((a, b) => b.victimisations - a.victimisations);
   }, [offenceData, filters.yearTo]);
 
